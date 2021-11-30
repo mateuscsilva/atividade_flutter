@@ -30,11 +30,6 @@ class _MyHomePageState extends State<MyHomePage> {
 
   double _counter = 0;
 
-  /*
-  void _navigateToFirstScreen() {
-    Navigator.pop(context);
-  }
-   */
 
   @override
   Widget build(BuildContext context) {
