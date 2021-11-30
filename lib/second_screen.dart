@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 class SecondScreen extends StatelessWidget {
 
-  final String userName;
   const SecondScreen({Key? key, required this.userName}) : super(key: key);
+  final String userName;
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +12,7 @@ class SecondScreen extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(userName: 'userName'),
+      home: MyHomePage(userName: userName),
     );
   }
 }
@@ -27,19 +27,20 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
 
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
+  double _counter = 0;
+
+  /*
+  void _navigateToFirstScreen() {
+    Navigator.pop(context);
   }
+   */
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('mudanca'),
+        title: Text(widget.userName),
       ),
       body: Center(
 
@@ -47,7 +48,7 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             const Text(
-              'You have pushed the button this many times:',
+              'Valor atual',
             ),
             Text(
               '$_counter',
@@ -56,11 +57,42 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+
+      floatingActionButton: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          FloatingActionButton(
+            onPressed: () {},
+            tooltip: 'Retornar',
+            child: const Icon(Icons.arrow_back),
+          ),
+          FloatingActionButton(
+            onPressed: _incrementCounter,
+            tooltip: 'Incrementar',
+            child: const Icon(Icons.add),
+          ),
+          FloatingActionButton(
+            onPressed: _decrementCounter,
+            tooltip: 'Subtrair',
+            child: const Icon(Icons.remove),
+          ),
+        ],
+      ),
+       // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
+
+  void _incrementCounter() {
+    setState(() {
+      _counter++;
+    });
+  }
+
+  void _decrementCounter() {
+    setState(() {
+      _counter--;
+    });
+  }
+
+
 }

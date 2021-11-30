@@ -4,14 +4,16 @@ import 'package:flutter/material.dart';
 class FirstScreen extends StatelessWidget {
   const FirstScreen({Key? key}) : super(key: key);
 
+  final String title = 'Atividade Flutter';
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Atividade Flutter',
+      title: title,
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Widget',),
+      home: MyHomePage(title: title,),
     );
   }
 }
@@ -27,8 +29,9 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
 
-  final double fontSize = 26;
+  final double fontSize = 20;
   final String buttonName = "Enviar";
+
   TextEditingController textFieldController = TextEditingController();
 
   void _navigateToCounterScreen() {
@@ -36,15 +39,13 @@ class _MyHomePageState extends State<MyHomePage> {
     if(sendText.isEmpty){
       sendText = "Anônimo";
     }
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => SecondScreen(userName: sendText))
+    Navigator.of(context, rootNavigator: true).push(
+        MaterialPageRoute(builder: (context) => SecondScreen(userName: sendText))
     );
   }
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
@@ -58,6 +59,10 @@ class _MyHomePageState extends State<MyHomePage> {
               padding: const EdgeInsets.all(32.0),
               child: TextField(
                 controller: textFieldController,
+                decoration: InputDecoration(
+                    hintStyle: TextStyle(color: Colors.blue),
+                    hintText: "Digite o seu nome"
+                ),
                 style: TextStyle(
                   fontSize: fontSize,
                   color: Colors.black,
