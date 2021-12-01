@@ -21,7 +21,6 @@ class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key, required this.userName}) : super(key: key);
 
   final String userName;
-
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }
@@ -29,7 +28,6 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
 
   double _counter = 0;
-
 
   @override
   Widget build(BuildContext context) {
@@ -49,12 +47,12 @@ class _MyHomePageState extends State<MyHomePage> {
               '$_counter',
               style: Theme.of(context).textTheme.headline4,
             ),
+
           ],
         ),
       ),
-
-      floatingActionButton: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
+      bottomNavigationBar: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           FloatingActionButton(
             onPressed: () {},
@@ -73,7 +71,6 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ],
       ),
-       // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 
@@ -88,6 +85,4 @@ class _MyHomePageState extends State<MyHomePage> {
       _counter--;
     });
   }
-
-
 }

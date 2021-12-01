@@ -22,7 +22,6 @@ class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key, required this.title}) : super(key: key);
 
   final String title;
-
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }
@@ -31,7 +30,6 @@ class _MyHomePageState extends State<MyHomePage> {
 
   final double fontSize = 20;
   final String buttonName = "Enviar";
-
   TextEditingController textFieldController = TextEditingController();
 
   void _navigateToCounterScreen() {
@@ -74,11 +72,9 @@ class _MyHomePageState extends State<MyHomePage> {
                 onPressed: _navigateToCounterScreen,
                 child: Text(buttonName)
             ),
-
           ],
         ),
       ),
-       // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
