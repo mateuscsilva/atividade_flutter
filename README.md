@@ -1,6 +1,6 @@
 # Atividade Flutter
 
-## A solução já está disponível na branc main
+## A solução já está disponível na branch main
 
 Atividade proposta com flutter para a disciplina de Mobile na UFBA (2021.2)
 <img align="center" alt="Flutter" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/9f4f5cdb393299a81125eb5127929ea7bfe42889/icons/flutter/flutter-original.svg" />
