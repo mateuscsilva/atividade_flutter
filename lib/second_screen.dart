@@ -55,7 +55,7 @@ class _MyHomePageState extends State<MyHomePage> {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           FloatingActionButton(
-            onPressed: () {},
+            onPressed: _navigateToStartScreen,
             tooltip: 'Retornar',
             child: const Icon(Icons.arrow_back),
           ),
@@ -69,9 +69,24 @@ class _MyHomePageState extends State<MyHomePage> {
             tooltip: 'Subtrair',
             child: const Icon(Icons.remove),
           ),
+          FloatingActionButton(
+            onPressed: _multiplyCounter,
+            tooltip: 'Multiplicar',
+            child: const Text('X',
+              style: TextStyle(fontSize: 18), textAlign: TextAlign.center,),
+          ),FloatingActionButton(
+            onPressed: _divideCounter,
+            tooltip: 'Dividir',
+            child: const Text('/',
+              style: TextStyle(fontSize: 18), textAlign: TextAlign.center,),
+          ),
         ],
       ),
     );
+  }
+
+  void _navigateToStartScreen() {
+    Navigator.of(context, rootNavigator: true).pop();
   }
 
   void _incrementCounter() {
@@ -83,6 +98,18 @@ class _MyHomePageState extends State<MyHomePage> {
   void _decrementCounter() {
     setState(() {
       _counter--;
+    });
+  }
+
+  void _multiplyCounter() {
+    setState(() {
+      _counter *= 2;
+    });
+  }
+
+  void _divideCounter() {
+    setState(() {
+      _counter /= 2;
     });
   }
 }

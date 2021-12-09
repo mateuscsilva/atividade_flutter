@@ -57,7 +57,7 @@ class _MyHomePageState extends State<MyHomePage> {
               padding: const EdgeInsets.all(32.0),
               child: TextField(
                 controller: textFieldController,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                     hintStyle: TextStyle(color: Colors.blue),
                     hintText: "Digite o seu nome"
                 ),
